@@ -116,18 +116,18 @@ class DarwinDumpZone(common.AbstractDarwinCommand):
 # All plugins below dump and validate elements from specific zones.
 
 
-class DarwinSocketZoneFinder(AbstractZoneElementFinder):
-    name = "dead_sockets"
-    zone_name = "socket"
-    type_name = "socket"
-
-    def validate_element(self, socket):
-        return socket == socket.so_rcv.sb_so
-
-
-class DarwinSocketZoneCollector(common.AbstractDarwinCachedProducer):
-    name = "dead_sockets"
-    type_name = "socket"
+#class DarwinSocketZoneFinder(AbstractZoneElementFinder):
+#    name = "dead_sockets"
+#    zone_name = "socket"
+#    type_name = "socket"
+#
+#    def validate_element(self, socket):
+#        return socket == socket.so_rcv.sb_so
+#
+#
+#class DarwinSocketZoneCollector(common.AbstractDarwinCachedProducer):
+#    name = "dead_sockets"
+#    type_name = "socket"
 
 
 class DarwinTTYZoneFinder(AbstractZoneElementFinder):
@@ -174,30 +174,30 @@ class DarwinZoneVnodeCollector(common.AbstractDarwinCachedProducer):
     type_name = "vnode"
 
 
-class PsListDeadProcFinder(AbstractZoneElementFinder):
-    name = "dead_procs"
-    zone_name = "proc"
-    type_name = "proc"
-
-    def validate_element(self, element):
-        return element.validate()
-
-
-class DarwinDeadProcessCollector(common.AbstractDarwinCachedProducer):
-    """Lists dead processes using the proc allocation zone."""
-    name = "dead_procs"
-    type_name = "proc"
-
-
-class DarwinZoneFileprocFinder(AbstractZoneElementFinder):
-    name = "dead_fileprocs"
-    type_name = "fileproc"
-    zone_name = "fileproc"
-
-    def validate_element(self, element):
-        return True
-
-
-class DarwinDeadFileprocCollector(common.AbstractDarwinCachedProducer):
-    name = "dead_fileprocs"
-    type_name = "fileproc"
+#class PsListDeadProcFinder(AbstractZoneElementFinder):
+#    name = "dead_procs"
+#    zone_name = "proc"
+#    type_name = "proc"
+#
+#    def validate_element(self, element):
+#        return element.validate()
+#
+#
+#class DarwinDeadProcessCollector(common.AbstractDarwinCachedProducer):
+#    """Lists dead processes using the proc allocation zone."""
+#    name = "dead_procs"
+#    type_name = "proc"
+#
+#
+#class DarwinZoneFileprocFinder(AbstractZoneElementFinder):
+#    name = "dead_fileprocs"
+#    type_name = "fileproc"
+#    zone_name = "fileproc"
+#
+#    def validate_element(self, element):
+#        return True
+#
+#
+#class DarwinDeadFileprocCollector(common.AbstractDarwinCachedProducer):
+#    name = "dead_fileprocs"
+#    type_name = "fileproc"
